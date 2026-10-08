@@ -18,7 +18,7 @@ function CardList({cards, setCards, onCardClick}) {
                 const data = await response.json();
                 
                 // 2. Map over the results to fetch the details (images) for each character
-                const detailPromises = data.results.map(async (pokemon) => {
+                const detailPromises = data.results.slice(0, 10).map(async (pokemon) => {
                     const res = await fetch(pokemon.url);
 
                     if (!res.ok) throw new Error(`Failed to fetch details for ${pokemon.name}`);
@@ -54,11 +54,11 @@ function CardList({cards, setCards, onCardClick}) {
 
 
     return (
-        <div className="game-board">
+        <div className="pokemon-container">
             {cards.map((card) => (
-                <div key={card.id} className="card" onClick={()=> onCardClick(card.id)} >
-                    <img src={card.image} alt={card.name} />
-                    <p>{card.name}</p>
+                <div key={card.id} className="pokemon-card" onClick={()=> onCardClick(card.id)} >
+                    <img src={card.image} alt={card.name} className="pokemon-image"/>
+                    <p className="pokemon-name">{card.name}</p>
                 </div>
             ))}
         </div>
