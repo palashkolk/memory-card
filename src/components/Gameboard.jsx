@@ -33,8 +33,19 @@ function Gameboard() {
 
     return (
         <>
-            <p>Score: {score}</p>
-            <p>Max. Score: {maxScore}</p>
+            <div class="score-stack">
+                <div class="score-row">
+                    <span class="score-label">Score: </span>
+                    <span class="score-value current">{score}</span>
+                </div>
+
+                <div class="score-row">
+                    <span class="score-label">Max Score: </span>
+                    <span class="score-value max">{maxScore}</span>
+                </div>
+            </div>
+            {/* <p>Score: {score}</p>
+            <p>Max. Score: {maxScore}</p> */}
             <CardList cards={cards} setCards={setCards} onCardClick={handleClick} />
         </>
     )

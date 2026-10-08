@@ -64,3 +64,41 @@
   margin: 0 0 8px 0;
   text-transform: capitalize; /* Automatically capitalizes names like "pikachu" */
 }
+
+/* Forces the entire block and its contents to align right */
+.score-stack-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  gap: 4px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Keeps label and number snug against each other */
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Tight gap so text never separates far from numbers */
+}
+
+/* Small, clean label text */
+.score-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b; /* Slate Gray */
+}
+
+/* Small, bold numbers */
+.score-value {
+  font-size: 1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums; /* Keeps digits stable when counting up */
+}
+
+.score-value.current {
+  color: #2563eb; /* Blue */
+}
+
+.score-value.max {
+  color: #1e293b; /* Dark Navy */
+}
