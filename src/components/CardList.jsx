@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 
-function CardList({ onCardClick }) {
-
-    const [cards, setCards] = useState([]);
+function CardList({cards, setCards, onCardClick}) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
 
     useEffect(() => {
         
@@ -57,13 +56,11 @@ function CardList({ onCardClick }) {
     return (
         <div className="game-board">
             {cards.map((card) => (
-                <div key={card.id} className="card" onClick={()=> onCardClick()} >
+                <div key={card.id} className="card" onClick={()=> onCardClick(card.id)} >
                     <img src={card.image} alt={card.name} />
                     <p>{card.name}</p>
-
                 </div>
             ))}
-
         </div>
     )
 
